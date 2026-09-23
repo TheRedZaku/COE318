@@ -51,8 +51,8 @@ public class ComplexNumber {
      *
      * @return -this
      */
-    public ComplexNumber negate() {        
-        return (- realComponent) + (- imaginaryComponent); //A stub: to be fixed
+    public ComplexNumber negate() {  
+        return new ComplexNumber(-realComponent, -imaginaryComponent); //A stub: to be fixed
     }
 
     /**
@@ -64,9 +64,9 @@ public class ComplexNumber {
      * @return this + z
      */
     public ComplexNumber add(ComplexNumber z) {
-        return z;	//A stub: to be fixed
+        return new ComplexNumber(realComponent + z.getReal(), imaginaryComponent + z.getImaginary());	//A stub: to be fixed
     }
-
+    
     /**
      * Returns a new ComplexNumber that is the difference of <em>this</em>	and
      * <em>z</em>. Note: the	original ComplexNumber is
@@ -76,7 +76,7 @@ public class ComplexNumber {
      * @return this + z
      */
     public ComplexNumber subtract(ComplexNumber z) {
-        return null;	//A stub: to be fixed
+        return new ComplexNumber(realComponent - z.getReal(), imaginaryComponent - z.getImaginary());	//A stub: to be fixed
     }
 
     /**
@@ -88,7 +88,7 @@ public class ComplexNumber {
      * @return this * z
      */
     public ComplexNumber multiply(ComplexNumber z) {
-        return null;	//A stub: to be fixed
+        return new ComplexNumber((realComponent * z.getReal()) - (imaginaryComponent * z.getImaginary()), (imaginaryComponent * z.getReal()) + (realComponent * z.getImaginary()));	//A stub: to be fixed
     }
 
     /**
@@ -99,7 +99,7 @@ public class ComplexNumber {
      * @return 1.0 / this
      */
     public ComplexNumber reciprocal() {
-        return null;	//A stub: to be fixed
+        return new ComplexNumber(realComponent / ((realComponent * realComponent) + (imaginaryComponent * imaginaryComponent)) , -imaginaryComponent / ((realComponent * realComponent) + (imaginaryComponent * imaginaryComponent)));	//A stub: to be fixed
     }
 
     /**
@@ -111,9 +111,9 @@ public class ComplexNumber {
      * @return this / z
      */
     public ComplexNumber divide(ComplexNumber z) {
-        return null;	//A stub: to be fixed
+        return new ComplexNumber(this.multiply(z.reciprocal()).getReal() , this.multiply(z.reciprocal()).getImaginary());	//A stub: to be fixed
     }
-
+                                                                                                                                                                                                        
     /**
      * Returns a String representation of
      * <em>this</em> in the format:
