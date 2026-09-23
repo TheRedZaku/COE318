@@ -51,8 +51,8 @@ public class ComplexNumber {
      *
      * @return -this
      */
-    public ComplexNumber negate() {
-        return ; //A stub: to be fixed
+    public ComplexNumber negate() {        
+        return (- realComponent) + (- imaginaryComponent); //A stub: to be fixed
     }
 
     /**
@@ -64,7 +64,7 @@ public class ComplexNumber {
      * @return this + z
      */
     public ComplexNumber add(ComplexNumber z) {
-        return null;	//A stub: to be fixed
+        return z;	//A stub: to be fixed
     }
 
     /**
