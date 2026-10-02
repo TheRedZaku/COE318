@@ -4,7 +4,7 @@ package coe318.lab2;
  * ComplexNumber models a complex number expressed in rectangular form (real and
  * imaginary parts). It is an <em>immutable</em> object.
  *
- * @author Your Name
+ * @author Kevin Li
  */
 public class ComplexNumber {
 //Instance variable declarations
@@ -101,6 +101,7 @@ public class ComplexNumber {
     public ComplexNumber reciprocal() {
         return new ComplexNumber(realComponent / ((realComponent * realComponent) + (imaginaryComponent * imaginaryComponent)) , -imaginaryComponent / ((realComponent * realComponent) + (imaginaryComponent * imaginaryComponent)));	//A stub: to be fixed
     }
+    //there is a negative on the imaginaryComponent because the conjugate has a negative
 
     /**
      * Returns a new ComplexNumber that is
