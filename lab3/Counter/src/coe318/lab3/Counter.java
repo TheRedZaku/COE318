@@ -1,6 +1,6 @@
 /**
  *
- * @author Your Name
+ * @author Kevin L
  */
 package coe318.lab3;
 public class Counter {
