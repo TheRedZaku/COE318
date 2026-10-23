@@ -65,7 +65,7 @@ public class Bank {
      * @return true if successful
      */
     public boolean add(Account account) {
-        if (hasAccountNumber(account.getNumber()) == false && numAccounts != (accounts.length - 1)) {
+        if (hasAccountNumber(account.getNumber()) == false && numAccounts != (accounts.length)) {
             numAccounts++;
             
             for (int i = 0; i < accounts.length; i++) {
