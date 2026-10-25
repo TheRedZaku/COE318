@@ -24,7 +24,7 @@ public class CardPile{
      * @param card
      */
     public void add(Card card) {
-        cards.add(card);//FIX THIS
+        cards.add(card);
     }
 
     /**
@@ -34,9 +34,8 @@ public class CardPile{
     public Card removeRandom() {
         
         //int randomCard = (int) (Math.random() * cards.size() - 1);
-        return cards.remove((int) (Math.random() * cards.size()));
-        
-//FIX THIS
+        return cards.remove((int) (Math.random() * cards.size())); //Math.random gives a random double from 0 (inc) to 1 (exc)
+        //multiplying by cards.size gives you a double that gets truncated to match
     }
 
     /**
@@ -51,7 +50,7 @@ public class CardPile{
         for (int i = 0; i < cards.size(); i++) {
             list += cards.get(i);
         }
-        return list;
+        return list + "\n"; //this \n just makes the spacing a little neater
     }
     
     /**

@@ -26,14 +26,14 @@ public class SimpleUI implements UserInterface {
   @Override
     public void display() {
         System.out.println("House holds: " + game.getHouseCards().toString() + "\nYou Hold: " + game.getYourCards().toString());
-        //FIX THIS
+        //prints out what cards you and the house are holding, as shown in the manual
     }
 
   @Override
     public boolean hitMe() {
         System.out.println("Would you like another card [Y/N]: ");
         return Character.toLowerCase(user.next().charAt(0)) == 'y';
-        //FIX THIS
+        //Character.toLowerCase just makes it so that the userinput is case insensitive
     }
 
   @Override
@@ -46,7 +46,7 @@ public class SimpleUI implements UserInterface {
             System.out.println("You won! House Holds: \n" + game.getHouseCards().toString() + "\nYou Hold: \n" + game.getYourCards().toString() +"\nScore: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
             
         }
-        //FIX THIS
+        //prints out the output as shown in the lab manual
     }
 
 }

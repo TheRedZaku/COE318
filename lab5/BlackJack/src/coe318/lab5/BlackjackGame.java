@@ -76,11 +76,11 @@ public class BlackjackGame {
     int totalScore = 0;
     for (int i = 0; i < p.getCards().size(); i++) {
         if (p.getCards().get(i).getRank() == 14) {
-            totalScore++;
+            totalScore++; //even though an Ace has a rank of 14, it only has a score of 1, so it must be converted
         } else if (p.getCards().get(i).getRank() > 10 && p.getCards().get(i).getRank() < 14){
-            totalScore+= 10;
+            totalScore+= 10; //if the card is a Jack, Queen or King
         } else {
-            totalScore+= p.getCards().get(i).getRank();
+            totalScore+= p.getCards().get(i).getRank(); //if the card is not a Jack, Queen, King, or Ace, then it will just have a score equal to its value
         }
             
     }

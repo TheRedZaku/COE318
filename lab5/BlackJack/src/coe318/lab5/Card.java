@@ -125,7 +125,7 @@ public class Card implements Comparable {
     for (int i = 1; i <= 13; i++) {
         if (rank != 14 && rank != 11 && rank != 12 && rank != 13) {
             if (rank == i) {
-                return Integer.toString(i);
+                return Integer.toString(i); //basically if it isn't a Jack, Queen, King, or Ace, then it returns the number of the card
             }
         } else {
             return switch (rank) {
@@ -170,9 +170,9 @@ public class Card implements Comparable {
 
       if (upDown == false) {
           //return "Rank: ? || Suit: ?";
-          return "?\n";
+          return "\n?";
       } else {
-          return getRankString() + " of " + getSuitString() + "\n";
+          return "\n" + getRankString() + " of " + getSuitString();
       }
 //FIX THIS
   }
