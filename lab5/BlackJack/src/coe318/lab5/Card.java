@@ -11,8 +11,6 @@ public class Card implements Comparable {
   public static final int HEART = 2;
   public static final int SPADE = 3;
   
-  //this originally had DIAMOND as 1, CLUB as 0, I switched it around
-  //NVM TA SAID DON'T CHANGE IT
 
   public final int rank;
   public final int suit;
@@ -34,19 +32,13 @@ public class Card implements Comparable {
   public Card(int rank, int suit, boolean faceUp) {
     this.rank = rank;
     switch(suit) {
-      case 0: 
-          this.suit = CLUB;
-          break;
-      case 1:
-          this.suit = DIAMOND;
-          break;
-      case 2:
-          this.suit = HEART;
-          break;
-      case 3:
-          this.suit = SPADE;
-          break;
-      //switch case to decide the suit based on the user's input
+      case 0 -> this.suit = CLUB;
+      case 1 -> this.suit = DIAMOND;
+      case 2 -> this.suit = HEART;
+      case 3 -> this.suit = SPADE;
+      default -> this.suit = -1;
+          //switch case to decide the suit based on the user's input
+          //switch case to decide the suit based on the user's input
     }
     
     upDown = faceUp; //assume false is down, true is up
@@ -85,8 +77,11 @@ public class Card implements Comparable {
     if (!(ob instanceof Card)) {
       return false;
     }
-    Card c = (Card) ob;
-    return true; //FIX THIS
+    Card c = (Card) ob; //setting the object retrieved from the parameter to a card type object
+    if (this.getRank() == c.getRank() && this.getSuit() == c.getSuit()) {
+        return true;
+    }
+    return false; //FIX THIS
   }
 
   @Override
@@ -128,16 +123,17 @@ public class Card implements Comparable {
   public String getRankString() {
     
     for (int i = 1; i <= 13; i++) {
-        if (rank != 1 && rank != 11 && rank != 12 && rank != 13) {
+        if (rank != 14 && rank != 11 && rank != 12 && rank != 13) {
             if (rank == i) {
                 return Integer.toString(i);
             }
         } else {
             return switch (rank) {
-                case 1 -> "ACE";
-                case 11 -> "JACK";
-                case 12 -> "QUEEN";
-                default -> "KING";
+                case 11 -> "Jack";
+                case 12 -> "Queen";
+                case 13 -> "King";
+                case 14 -> "Ace";
+                default -> "Rank doesn't exist.";
             }; //different method of organizing single line switch cases
         }
         
@@ -152,16 +148,14 @@ public class Card implements Comparable {
    * @return the suit String
    */
   public String getSuitString() {
-      switch (suit) {
-          case DIAMOND:
-              return "Diamonds";
-          case CLUB:
-              return "Clubs";
-          case HEART:
-              return "Hearts";
-          default:
-              return "Spades";
-      }
+      return switch (suit) {
+          case DIAMOND -> "Diamonds";
+          case CLUB -> "Clubs";
+          case HEART -> "Hearts";
+          default -> "Spades";
+      };
+      //Using rule case instead of switch case, since it's more compact
+      //provides the same functionality
       
   }
 
@@ -175,9 +169,10 @@ public class Card implements Comparable {
   public String toString() {
 
       if (upDown == false) {
-          return "Rank: ? || Suit: ?";
+          //return "Rank: ? || Suit: ?";
+          return "?\n";
       } else {
-          return "Rank: " + getRankString() + " || Suit: " + getSuitString();
+          return getRankString() + " of " + getSuitString() + "\n";
       }
 //FIX THIS
   }
