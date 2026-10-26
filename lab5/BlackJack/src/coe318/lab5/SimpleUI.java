@@ -37,16 +37,40 @@ public class SimpleUI implements UserInterface {
     }
 
   @Override
-    public void gameOver() {
-        if (game.score(game.getYourCards()) > 21 || game.score(game.getYourCards()) == game.score(game.getHouseCards())) {
-            System.out.println("You Lost! House Holds: \n" + game.getHouseCards().toString() + "\nYou Hold: \n" + game.getYourCards().toString() +"\nScore: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
-        } else if (game.score(game.getYourCards()) == 21 && game.score(game.getHouseCards()) > 21) {
-            
+    public void gameOver() {//have to call using game.-> since the ui does not have access to the cards directly
+        if (game.score(game.getYourCards()) > 21 || (game.score(game.getYourCards()) == game.score(game.getHouseCards()) && game.score(game.getYourCards()) != 21)) {
+            //If your score is more than 21 you lose
+            //if you and the house tie and it isn't 21, you lose
+            System.out.println("You Lose! Better Luck Next Time!");
+            display();
+            System.out.println("Score: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+            //System.out.println("You Lost! House Holds: \n" + game.getHouseCards().toString() + "\nYou Hold: \n" + game.getYourCards().toString() +"\nScore: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+        } else if (game.score(game.getYourCards()) < 21 && game.score(game.getHouseCards()) > 21) {
+            //if your score is less than 21 and the house is more than 21, you win
+            System.out.println("You Win!");
+            display();
+            System.out.println("Score: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+            //System.out.println("You won! House Holds: \n" + game.getHouseCards().toString() + "\nYou Hold: \n" + game.getYourCards().toString() +"\nScore: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+        } else if (game.score(game.getYourCards()) < 21 && game.score(game.getHouseCards()) == 21 || game.score(game.getYourCards()) < game.score(game.getHouseCards())){
+            System.out.println("You Lose! Better Luck Next Time!");
+            display();
+            System.out.println("Score: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+            //if you have a score LESS than 21, and the House has exactly 21, then you lose
+            //System.out.println("You won! House Holds: \n" + game.getHouseCards().toString() + "\nYou Hold: \n" + game.getYourCards().toString() +"\nScore: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards())); 
+        } else if (game.score(game.getYourCards()) == 21 && game.score(game.getHouseCards()) == 21){
+            //What happens when you tie? Well in a real game, you split the bet, so I'm adding that functionality here
+            System.out.println("You...Tied?");
+            display();
+            System.out.println("Score: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+            //if your score IS 21 and the house IS 21, then it is just a tie for this, but it is technically a "win" for this program
         } else {
-            System.out.println("You won! House Holds: \n" + game.getHouseCards().toString() + "\nYou Hold: \n" + game.getYourCards().toString() +"\nScore: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+            System.out.println("You Win!");
+            display();
+            System.out.println("Score: " + game.score(game.getYourCards()) + " || House Score: " + game.score(game.getHouseCards()));
+            //if your score IS 21 and the house is less than you, then you win
             
         }
-        //prints out the output as shown in the lab manual
+        //prints out the output as shown in the lab manual, with a few tweaks
     }
 
 }
