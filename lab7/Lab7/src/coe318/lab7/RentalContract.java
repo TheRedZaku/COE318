@@ -21,7 +21,7 @@ public class RentalContract {
 
    
         if (insuranceAdded) {
-            
+
             insurance = ((Insurable) rentable).calculateInsurancePremium(days);
         }
 

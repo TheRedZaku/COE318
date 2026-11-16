@@ -15,7 +15,7 @@ public class Vehicle implements Insurable, Rentable {
         this.model = model;
         this.year = year;
     } //constructor sets basic information for the vehicle
-
+        
     public String getPlateNumber() {
         return plateNumber;
     }
@@ -31,12 +31,10 @@ public class Vehicle implements Insurable, Rentable {
         return year + " " + model + " (" + plateNumber + ")";
     }
 
-    
     @Override
     public double calculateRentalPrice(int days){//implemented from interface
         return(DefaultRentPrice*days); //when a class implements this class, it can change the rent per day pricing
     }
-
 
     @Override
     public double calculateInsurancePremium(int days) {//implemented from interface
@@ -64,4 +62,5 @@ public class Vehicle implements Insurable, Rentable {
     public static void printVehicleType() {
         System.out.println("Generic Vehicle");
     }
+
 }
